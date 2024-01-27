@@ -1,4 +1,46 @@
-.weather-header {
-    background: linear-gradient(to right, #007bff, #00bfff); /* Adjust colors as needed */
-    color: white;
-  }
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: sans-serif;
+}
+body{
+  min-height:100vh;
+}
+
+header,footer {
+  height: 15vh;
+  background-color: cornflowerblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main {
+  min-height: 70vh;
+}
+
+section{
+  width:80vw;
+  margin:0 auto
+}
+
+form {
+  width:50%;
+  margin:0 auto;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+h2 {
+  text-align: center;
+}
+
+article{
+  padding:5px;
+  border:2px solid black;
+  border-radius: 5px;
+  box-sizing: 5px 5px 10px 5px black;
+  font-size:2em;
+  margin:10px;
+}

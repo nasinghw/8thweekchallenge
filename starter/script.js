@@ -1,13 +1,16 @@
 // 1fe0a80bb9cd82a0e4938c4f81815a36
 
 // https://api.openweathermap.org/data/2.5/weather?q={city name}&appid=1fe0a80bb9cd82a0e4938c4f81815a36
-fetch("https://api.openweathermap.org/data/2.5/weather?q=London&appid=1fe0a80bb9cd82a0e4938c4f81815a36").then(function(response){
+var queryUrl = "https://api.openweathermap.org/data/2.5/weather?q=London&appid=1fe0a80bb9cd82a0e4938c4f81815a36"
+
+fetch(queryUrl).then(function(response){
     return response.json();
 })
 .then(function(data){
     console.log(data);
 })
 
+// Display current date and time
 $("#time-heading").text(dayjs().format("DD MMM YYYY [at] hh:mm:ss a"));
 setInterval(function () {
   $("#time-heading").text(dayjs().format("DD MMM YYYY [at] hh:mm:ss a"));
