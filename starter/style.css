@@ -1,46 +1,27 @@
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family: sans-serif;
-}
-body{
-  min-height:100vh;
+body {
+  background-color: #f8f9fa; /* Set a background color for the body */
 }
 
-header,footer {
-  height: 15vh;
-  background-color: cornflowerblue;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-main {
-  min-height: 70vh;
+.weather-header {
+  background: linear-gradient(to right, #007bff, #00bfff);
+  color: white;
 }
 
-section{
-  width:80vw;
-  margin:0 auto
+/* Add more styles as needed */
+
+/* Set a maximum width for the content */
+.container-fluid {
+  max-width: 1400px;
 }
 
-form {
-  width:50%;
-  margin:0 auto;
-  display: flex;
-  flex-direction: column;
-  width: 50%;
+/* Add styles for other elements and sections */
+
+/* Style for the current weather card */
+#current-weather-container {
+  margin-top: 20px;
 }
 
-h2 {
-  text-align: center;
-}
-
-article{
-  padding:5px;
-  border:2px solid black;
-  border-radius: 5px;
-  box-sizing: 5px 5px 10px 5px black;
-  font-size:2em;
-  margin:10px;
+/* Style for the forecast card */
+#forecast-container {
+  margin-top: 20px;
 }
