@@ -102,11 +102,25 @@ card.className = 'card';
 const cardBody = document.createElement('div');
 cardBody.className = 'card-body';
 
+
+
 // Display city name
 const cityName = document.createElement('h5');
 cityName.className = 'card-title';
 cityName.textContent = `Today's Weather in ${data.name}`;
 cardBody.appendChild(cityName);
+
+// Weather icon
+const weatherIcon = document.createElement('div');
+weatherIcon.className = 'weather-icon';
+cardBody.appendChild(weatherIcon);
+
+// Update weather icon in updateCurrentWeather function
+
+const iconCode = data.weather[0].icon;
+const iconUrl = `https://openweathermap.org/img/wn/${iconCode}.png`;
+weatherIcon.innerHTML = `<img src="${iconUrl}" alt="Weather Icon" />`;
+
 
 // Display temperature
 const temperature = document.createElement('p');
@@ -169,11 +183,24 @@ document.getElementById('forecast').innerHTML = '';
    const cardBody = document.createElement('div');
    cardBody.className = 'card-body text-primary';
 
+  
+
    // Display date
    const date = document.createElement('h5');
    date.className = 'card-title';
    date.textContent = dayjs(forecastData[i].dt_txt).format('DD MMM YYYY');
    cardBody.appendChild(date);
+
+     // Weather icon
+     const weatherIcon = document.createElement('div');
+     weatherIcon.className = 'weather-icon';
+     cardBody.appendChild(weatherIcon);
+
+   // Update weather icon in update5DayForecast function
+    const iconCode = forecastData[i].weather[0].icon;
+    const iconUrl = `https://openweathermap.org/img/wn/${iconCode}.png`;
+    weatherIcon.innerHTML = `<img src="${iconUrl}" alt="Weather Icon" />`;
+
 
 
    // Display temperature
