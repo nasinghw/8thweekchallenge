@@ -75,25 +75,6 @@ function getWeather(city) {
     });
 }
 
-// Function to fetch the 5-day forecast for a specific city using geographical coordinates
-// function get5DayForecast(lat, lon) {
-//   fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}`)
-//     .then(function (response) {
-//       return response.json();
-//     })
-//     .then(function (data) {
-//       // Call a function to update the UI with the 5-day forecast data
-
-//         update5DayForecast(data);
-//     })
-//     .catch(function (error) {
-//       console.error("Error fetching 5-day forecast data:", error);
-//     });
-
-
-
-// }
-
 
 // Function to update the UI with current weather data
 function updateCurrentWeather(data) {
@@ -153,14 +134,8 @@ card.appendChild(cardBody);
 // Append card to the #today section
 document.getElementById('today').appendChild(card);
 
-  //&&&//
+  
 }
-
-//***** */
-
-//***** */
-
-
 
 // Function to update the UI with 5-day forecast data
 function update5DayForecast(data) {
