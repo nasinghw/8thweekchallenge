@@ -72,29 +72,24 @@ function getWeather(city) {
     });
 }
 
-
 // Function to update the UI with current weather data
 function updateCurrentWeather(data) {
   // Modify this function to update the UI elements with current weather data
   console.log("Current Weather Data:", data);
+  // Modify this function to update the UI elements with current weather data
 
-  //&&&//
-// Modify this function to update the UI elements with current weather data
+  console.log("Current Weather Data:", data);
 
-console.log("Current Weather Data:", data);
+  // Clear previous content
+  document.getElementById('today').innerHTML = '';
 
-// Clear previous content
-document.getElementById('today').innerHTML = '';
+  // Create a Bootstrap card
+  const card = document.createElement('div');
+  card.className = 'card';
 
-// Create a Bootstrap card
-const card = document.createElement('div');
-card.className = 'card';
-
-// Card body
-const cardBody = document.createElement('div');
-cardBody.className = 'card-body';
-
-
+  // Card body
+  const cardBody = document.createElement('div');
+  cardBody.className = 'card-body';
 
 // Display city name
 const cityName = document.createElement('h5');
