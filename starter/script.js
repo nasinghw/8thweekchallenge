@@ -181,8 +181,6 @@ function update5DayForecast(data) {
     const iconUrl = `https://openweathermap.org/img/wn/${iconCode}.png`;
     weatherIcon.innerHTML = `<img src="${iconUrl}" alt="Weather Icon" />`;
 
-
-
    // Display temperature
    const temperature = document.createElement('p');
    temperature.className = 'card-text';
@@ -214,10 +212,7 @@ function update5DayForecast(data) {
    // Append card to the #forecast section
    document.getElementById('forecast').appendChild(card);
  }
-
 }
-
-
 // Function to fetch the 5-day forecast for a specific city using geographical coordinates
 function get5DayForecast(lat, lon) {
   fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}`)
