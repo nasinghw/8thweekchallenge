@@ -25,3 +25,14 @@ body {
 #forecast-container {
   margin-top: 20px;
 }
+
+ /* Add this to your CSS or in a style tag in the head section */
+ .card {
+  width: 18rem;
+  margin: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+  text-align: center;
+}
