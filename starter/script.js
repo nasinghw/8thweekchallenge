@@ -4,7 +4,6 @@
 const apiKey = "1fe0a80bb9cd82a0e4938c4f81815a36";
 var queryUrl = "https://api.openweathermap.org/data/2.5/weather?q=London&appid=1fe0a80bb9cd82a0e4938c4f81815a36"
 
-
 // Display current date and time
 $("#time-heading").text(dayjs().format("DD MMM YYYY [at] hh:mm:ss a"));
 setInterval(function () {
@@ -16,11 +15,10 @@ var cities = [];
 //Function to add City name as button
 function renderButtons(){
 
-  $("#buttons-view").empty();
-  
+  $("#buttons-view").empty();  
   for (let i = 0; i < cities.length; i++) {
  
-//Create Element
+  //Create Element
   var newButton = $("<button>");
   //add text content
   newButton.text(cities[i]);
@@ -32,30 +30,24 @@ function renderButtons(){
   $("#buttons-view").append("<br>");
 
   
-  newButton.on("click", function(event){
+    newButton.on("click", function(event){
     console.log("button clicked");
     console.log(cities[i]);
     getWeather(cities[i])
   });
-
 }
-
 }
 
 $("#add-city").on("click", function(event){
   event.preventDefault();
   // $(".form-input").val()
   var searchCity = $("#city-input").val().trim();
-//   console.log("=============");
-//   console.log(searchCity);
+  //   console.log("=============");
+  //   console.log(searchCity);
   cities.push(searchCity);
 
   getWeather(searchCity);
   renderButtons();
-
- 
- 
-
 })
 
 // Function to fetch weather data for a specific city
