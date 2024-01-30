@@ -15,6 +15,10 @@ var cities = [];
 //Function to add City name as button
 function renderButtons(){
 
+  $("#buttons-view").empty();
+  // Retrieve cities from local storage
+  var storedCities = JSON.parse(localStorage.getItem("cities")) || [];
+
   $("#buttons-view").empty();  
   for (let i = 0; i < cities.length; i++) {
  
@@ -29,9 +33,11 @@ function renderButtons(){
   // Add a line break after each button
   $("#buttons-view").append("<br>");
 
+    
   
     newButton.on("click", function(event){
     console.log("button clicked");
+
     console.log(cities[i]);
     getWeather(cities[i])
   });
@@ -45,6 +51,10 @@ $("#add-city").on("click", function(event){
   //   console.log("=============");
   //   console.log(searchCity);
   cities.push(searchCity);
+
+  // Store updated cities in local storage
+  localStorage.setItem("cities", JSON.stringify(cities));
+
 
   getWeather(searchCity);
   renderButtons();
