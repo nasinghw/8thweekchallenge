@@ -16,7 +16,6 @@ var cities = [];
 function renderButtons(){
 
   $("#buttons-view").empty();
-
   
   // Retrieve cities from local storage
   var storedCities = JSON.parse(localStorage.getItem("cities")) || [];
@@ -55,15 +54,50 @@ $("#add-city").on("click", function(event){
   var searchCity = $("#city-input").val().trim();
   //   console.log("=============");
   //   console.log(searchCity);
-  cities.push(searchCity);
 
-  // Store updated cities in local storage
-  localStorage.setItem("cities", JSON.stringify(cities));
-
-
+  validateCity(searchCity);
   getWeather(searchCity);
   renderButtons();
 })
+
+function validateCity(city) {
+  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      if (data.cod === "404") {
+        // City not found, handle invalid city
+        console.log("Invalid city:", city);
+        alert("Invalid city. Please enter a valid city name.");
+
+      } else {
+        // City found, check for uniqueness
+        if (!isCityUnique(city)) {
+          // City already exists, handle duplicate
+          console.log("Duplicate city:", city);
+          alert("City already exists. Please enter a unique city name.");
+
+      } else {
+        // City found, proceed with fetching weather data and rendering buttons
+        cities.push(city);
+        localStorage.setItem("cities", JSON.stringify(cities));
+        getWeather(city);
+        renderButtons();
+      }
+    }
+    })
+    .catch(function (error) {
+      console.error("Error validating city:", error);
+      alert("Error validating city. Please try again.");
+    });
+}
+
+function isCityUnique(city) {
+  return !cities.includes(city);
+}
+
+
 
 // Function to fetch weather data for a specific city
 function getWeather(city) {
@@ -86,6 +120,9 @@ function getWeather(city) {
       console.error("Error fetching current weather data:", error);
     });
 }
+
+
+
 
 // Function to update the UI with current weather data
 function updateCurrentWeather(data) {
