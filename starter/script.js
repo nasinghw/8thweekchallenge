@@ -95,7 +95,7 @@ function updateCurrentWeather(data) {
 
   // Create a Bootstrap card
   const card = document.createElement('div');
-  card.className = 'card';
+  card.className = 'card bg-light mb-3';
 
   // Card body
   const cardBody = document.createElement('div');
@@ -168,7 +168,7 @@ function update5DayForecast(data) {
 
    // Create a Bootstrap card for each day
    const card = document.createElement('div');
-   card.className = 'card border-primary mb-3';
+   card.className = 'card bg-light border-primary mb-3';
    card.style = 'max-width: 18rem;';
 
    // Card body
