@@ -16,16 +16,21 @@ var cities = [];
 function renderButtons(){
 
   $("#buttons-view").empty();
+
+  
   // Retrieve cities from local storage
   var storedCities = JSON.parse(localStorage.getItem("cities")) || [];
 
   $("#buttons-view").empty();  
-  for (let i = 0; i < cities.length; i++) {
+  //Remove duplicate cities
+  var uniqueCities = [...new Set(cities)]; 
+
+  for (let i = 0; i < uniqueCities.length; i++) {
  
   //Create Element
   var newButton = $("<button>");
   //add text content
-  newButton.text(cities[i]);
+  newButton.text(uniqueCities[i]);
   // Add Bootstrap classes to style the button
   newButton.addClass("btn btn-secondary btn-block mb-2");
   //Append on page
@@ -38,8 +43,8 @@ function renderButtons(){
     newButton.on("click", function(event){
     console.log("button clicked");
 
-    console.log(cities[i]);
-    getWeather(cities[i])
+    console.log(uniqueCities[i]);
+    getWeather(uniqueCities[i])
   });
 }
 }
