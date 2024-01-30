@@ -27,7 +27,7 @@ function renderButtons(){
   //add text content
   newButton.text(cities[i]);
   // Add Bootstrap classes to style the button
-  newButton.addClass("btn btn-secondary mb-2");
+  newButton.addClass("btn btn-secondary btn-block mb-2");
   //Append on page
   $("#buttons-view").append(newButton);
   // Add a line break after each button
