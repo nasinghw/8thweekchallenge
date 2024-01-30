@@ -108,7 +108,6 @@ const iconCode = data.weather[0].icon;
 const iconUrl = `https://openweathermap.org/img/wn/${iconCode}.png`;
 weatherIcon.innerHTML = `<img src="${iconUrl}" alt="Weather Icon" />`;
 
-
 // Display temperature
 const temperature = document.createElement('p');
 temperature.className = 'card-text';
@@ -139,8 +138,6 @@ card.appendChild(cardBody);
 
 // Append card to the #today section
 document.getElementById('today').appendChild(card);
-
-  
 }
 
 
@@ -149,10 +146,8 @@ function update5DayForecast(data) {
   // Modify this function to update the UI elements with 5-day forecast data
   console.log("5-Day Forecast Data:", data);
 
-//&&&&//
- // Clear previous content
-// Clear previous content
-document.getElementById('forecast').innerHTML = '';
+  // Clear previous content
+  document.getElementById('forecast').innerHTML = '';
 
 
  // Display 5-day forecast data
@@ -169,8 +164,6 @@ document.getElementById('forecast').innerHTML = '';
    // Card body
    const cardBody = document.createElement('div');
    cardBody.className = 'card-body text-primary';
-
-  
 
    // Display date
    const date = document.createElement('h5');
