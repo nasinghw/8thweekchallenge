@@ -1,7 +1,9 @@
-
+// 1fe0a80bb9cd82a0e4938c4f81815a36
+// Uncomment the following line
 // API key
 const apiKey = "1fe0a80bb9cd82a0e4938c4f81815a36";
 var queryUrl = "https://api.openweathermap.org/data/2.5/weather?q=London&appid=1fe0a80bb9cd82a0e4938c4f81815a36"
+
 
 // Display current date and time
 $("#time-heading").text(dayjs().format("DD MMM YYYY [at] hh:mm:ss a"));
@@ -17,8 +19,6 @@ function renderButtons(){
   $("#buttons-view").empty();
   
   for (let i = 0; i < cities.length; i++) {
-    
-    
  
 //Create Element
   var newButton = $("<button>");
@@ -52,6 +52,11 @@ $("#add-city").on("click", function(event){
 
   getWeather(searchCity);
   renderButtons();
+
+ 
+ 
+
+})
 
 // Function to fetch weather data for a specific city
 function getWeather(city) {
@@ -137,6 +142,7 @@ document.getElementById('today').appendChild(card);
   
 }
 
+
 // Function to update the UI with 5-day forecast data
 function update5DayForecast(data) {
   // Modify this function to update the UI elements with 5-day forecast data
@@ -176,6 +182,13 @@ document.getElementById('forecast').innerHTML = '';
    temperature.textContent = `Temperature: ${forecastData[i].main.temp} K`;
    cardBody.appendChild(temperature);
 
+   // Convert Kelvin to Celsius
+    const temperatureC = document.createElement('p');
+    temperatureC.className = 'card-text';
+    var tempC = forecastData[i].main.temp - 273.15;
+    temperatureC.textContent = `Temperature in Celsius: ${tempC.toFixed(2)} C`;
+    cardBody.appendChild(temperatureC);
+
    // Display wind speed
    const windSpeed = document.createElement('p');
    windSpeed.className = 'card-text';
@@ -194,37 +207,9 @@ document.getElementById('forecast').innerHTML = '';
    // Append card to the #forecast section
    document.getElementById('forecast').appendChild(card);
  }
-//&&&&//
 
 }
 
-// Event listener for the form submission
-// document.getElementById("search-form").addEventListener("submit", function (event) {
-//   event.preventDefault();
-//   const city = document.getElementById("search-input").value;
-//   // Call the getWeather function with the user-inputted city
-//   getWeather(city);
-// });
-
-
-
-// // Function to fetch weather data for a specific city
-// function getWeather(city) {
-//   fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`)
-//     .then(function (response) {
-//       return response.json();
-//     })
-//     .then(function (data) {
-//       // Call a function to update the UI with the current weather data
-//       updateCurrentWeather(data);
-//       // Now, fetch the 5-day forecast using the geographical coordinates from the current weather data
-//       const { coord } = data;
-//       get5DayForecast(coord.lat, coord.lon);
-//     })
-//     .catch(function (error) {
-//       console.error("Error fetching current weather data:", error);
-//     });
-// }
 
 // Function to fetch the 5-day forecast for a specific city using geographical coordinates
 function get5DayForecast(lat, lon) {
@@ -241,29 +226,4 @@ function get5DayForecast(lat, lon) {
     });
 }
 
-// Function to update the UI with current weather data
-// function updateCurrentWeather(data) {
-//   // Modify this function to update the UI elements with current weather data
-//   console.log("Current Weather Data:", data);
-// }
 
-// // Function to update the UI with 5-day forecast data
-// function update5DayForecast(data) {
-//   // Modify this function to update the UI elements with 5-day forecast data
-//   console.log("5-Day Forecast Data:", data);
-// }
-
-// Event listener for the form submission
-// document.getElementById("search-form").addEventListener("submit", function (event) {
-//   event.preventDefault();
-//   const city = document.getElementById("search-input").value;
-//   // Call the getWeather function with the user-inputted city
-//   getWeather(city);
-// });
-
-// Event listener for the button click
-// document.getElementById("search-button").addEventListener("click", function () {
-//   const city = document.getElementById("search-input").value;
-//   // Call the getWeather function with the user-inputted city
-//   getWeather(city);
-// });
